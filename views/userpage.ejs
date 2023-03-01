@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+
+        <% include partials/head %> 
+
+    
+        <style type="text/css">
+
+            table, td, th {  
+            border: 1px solid #ddd;
+            text-align: left;
+            }
+            
+            table {
+                border-collapse: collapse;
+                width: 50%;
+            
+            }
+            .table-data{
+                position: relative;
+                left:50px;
+                top:50px;
+            }
+            th, td {
+                padding: 15px;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <% include partials/menu %>
+
+        <div class="container-fluid">
+            
+            <h1> User Page </h1>
+            <br />  
+            <br />
+
+            <!-- logout button -->
+            <a href="/logout" class="btn btn-secondary">Logout</a>
+
+
+            <!-- Goal Form -->
+            <a href="/addcontact" class="btn btn-secondary">Add Goal</a>
+
+
+
+        </div>
+
+
+    </body>
+
+
+    <% include partials/script %>
+
+
+    </html>

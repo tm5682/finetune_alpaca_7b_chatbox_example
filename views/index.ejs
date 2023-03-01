@@ -1,11 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+  <% include partials/head %> 
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <% include partials/menu %>
+  <div class="container-fluid">
+    <h1>Welcome</h1>
+      <blockquote class="blockquote">
+        <p class="mb-0">Welcome to FitApp</p>
+      </blockquote>
+      <br />  
+      <br />
+    
+  </div>
+
+  <div class="container-fluid text-center">   
+
+    <div class="jumbotron jumbotron-fluid row">
+
+      <div class="col-sm-5"> 
+        <h2>Mission Statement</h2>
+        <p>What we believe in - Health, Growth, Peace!
+          <b>Checkout our white paper below </b>
+        </p>
+          
+        <a href="https://www.corsphere.com">
+          <img src="/images/sign1.webp" width="100" height="100">
+          </a>
+      </div>
+      
+     
+      <div class="col-sm-2">
+
+      </div>
+
+      <div class="col-sm-5"> 
+        <h2>Try us in 5 minutes</h2>
+        <p>Get closer to your health goals in only few minutes of setup. <b>You can check out more below.</b>
+        </p>
+        <a href="/userpage">
+          <img src="/images/sign4.png" width="150" height="100">
+          </a>
+      </div>
+    </div>
+  </div>
   </body>
+  <% include partials/script %>
 </html>
