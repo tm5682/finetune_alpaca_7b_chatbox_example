@@ -5,7 +5,7 @@ var passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('login', {page:'Login', menuId:'login'});
+  res.render('login', {title:'Login', menuId:'login'});
 });
 
 

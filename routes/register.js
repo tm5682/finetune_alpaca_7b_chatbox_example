@@ -9,7 +9,7 @@ const bcrypt = require('bcryptjs');
 
 /* GET registration page. */
 router.get('/', function(req, res, next) {
-  res.render('register', {page:'Register', menuId:'register'});
+  res.render('register', {title:'Register', menuId:'register'});
 });
 
 //Handle registration post request from the form
@@ -34,7 +34,7 @@ if (password !== password2) {
 
 // if theres any error we load back register page
 if (errors.length > 0 ) {
-  res.render('register', {page:'Register', menuId:'register'})
+  res.render('register', {title:'Register', menuId:'register'})
 } else {
   //if no error we go on with database dump
   
@@ -44,7 +44,7 @@ if (errors.length > 0 ) {
     .then(user => {
       if(user) {
         //if findOne finds the user we rerender registration page
-        res.render('register', {page:'Register', menuId:'register'})
+        res.render('register', {title:'Register', menuId:'register'})
       } else {
         
         //else if this user is unique
