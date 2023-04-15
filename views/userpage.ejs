@@ -34,13 +34,32 @@
 
     <body>
 
+
         <% include partials/menu %>
+
 
         <div class="container-fluid">
             
-            <h1> User Page </h1>
-            <br />  
+            <h1> Welcome to your MyPage <b><%= userName %></b>. </h1>
+
+            <blockquote class="blockquote">
+                <p>Update your current measurements, or view history below. Depending on it recommendations will change.</p>
+            </blockquote>
+
             <br />
+            <br />
+
+        </div>
+
+
+        <div class="container-fluid">
+
+            <% include ./explore %>
+
+        </div>
+
+
+        <div class="container-fluid">
 
             <!-- logout button -->
             <a href="/logout" class="btn btn-secondary">Logout</a>
@@ -48,8 +67,6 @@
 
             <!-- Goal Form -->
             <a href="/addcontact" class="btn btn-secondary">Add Goal</a>
-
-
 
         </div>
 

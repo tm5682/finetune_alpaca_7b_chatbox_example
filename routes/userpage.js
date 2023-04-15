@@ -9,7 +9,7 @@ const { ensureAuthenticated } = require('../config/auth')
 
 /* page with auth rule passed */
 router.get('/', ensureAuthenticated,  function(req, res, next) {
-  res.render('userpage', {page:'Userpage', menuId:'userpage'});
+  res.render('userpage', {title:'Userpage', menuId:'userpage',  userName: req.user ? req.user.username : 'Guest'});
 });
 
 

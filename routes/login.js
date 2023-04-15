@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 //from passport authenticate documentation calling local as strategy, with additional parameters. 
 router.post('/', (req, res, next) => {
   passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/userpage',
     failureRedirect: '/login',
   })(req, res, next);
 });
