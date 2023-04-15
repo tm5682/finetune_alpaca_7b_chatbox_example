@@ -32,6 +32,8 @@
 
     </head>
 
+
+
     <body>
 
 
@@ -47,14 +49,32 @@
             </blockquote>
 
             <br />
-            <br />
 
         </div>
 
 
+        <!-- Add Measurements and Show Measurements -->
+        <div class="container-fluid">
+            <a href="/measurements" class="btn btn-primary">Add New Health Measurements</a>
+
+
+            <% include measurement_history {measurements: measurements} %>
+            <br />
+            <br />
+        </div>
+
+
+
+
+
+
+
+        <!-- workout and nutrition contents -->
+
         <div class="container-fluid">
 
-            <% include ./explore %>
+            <% include explore_content {workouts: workouts, nutritions: nutritions} %>
+
 
         </div>
 

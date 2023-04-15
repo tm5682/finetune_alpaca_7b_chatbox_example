@@ -6,6 +6,8 @@ var logger = require('morgan');
 
 var session = require('express-session');
 
+const flash = require('connect-flash');
+
 
 //for dot env
 var dotenv = require('dotenv');
@@ -25,6 +27,8 @@ var logoutRouter = require('./routes/logout');
 var registerRouter = require('./routes/register');
 
 var userpageRouter = require('./routes/userpage')
+
+const measurementsRouter = require('./routes/measurements');
 
 
 
@@ -87,6 +91,17 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Connect Flash Middleware
+app.use(flash());
+
+// Global variables for flash messages
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+});
+
 
 
 //Routes
@@ -96,6 +111,8 @@ app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/logout', logoutRouter);
 app.use('/userpage', userpageRouter);
+
+app.use('/measurements', measurementsRouter);
 
 
 

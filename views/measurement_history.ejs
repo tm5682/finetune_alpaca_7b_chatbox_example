@@ -1,0 +1,26 @@
+<div class="table-data">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr> 
+            <h3><strong>Age: </strong> <%= age %> </h3>
+
+            <h3><strong>Height: </strong><%= height %> </h3>
+        </tr>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Weight (kg)</th>
+          <th scope="col">Body Fat Percentage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% measurements.forEach(measurement => { %>
+          <tr>
+            <td><%= new Date(measurement.date).toLocaleDateString() %></td>
+            <td><%= measurement.weight %></td>
+            <td><%= measurement.bodyFatPercentage %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  
