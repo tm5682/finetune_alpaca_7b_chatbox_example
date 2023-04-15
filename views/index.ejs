@@ -1,50 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <% include partials/head %> 
+    <% include partials/head %>
+    <style>
+      .fitapp-section {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .card-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        margin: 1rem;
+      }
+
+      .card-img {
+        width: 75%;
+        height: 200px; /* Adjust this value to set the desired height */
+        object-fit: cover; /* This property ensures the images maintain their aspect ratio while covering the specified dimensions */
+      }
+
+    </style>
   </head>
   <body>
-  <% include partials/menu %>
-  <div class="container-fluid">
-    <h1>Welcome</h1>
-      <blockquote class="blockquote">
-        <p class="mb-0">Welcome to FitApp</p>
-      </blockquote>
-      <br />  
+    <% include partials/menu %>
+    <div class="container-fluid">
+      <h1>Welcome to FitApp</h1>
       <br />
-    
-  </div>
+      <blockquote class="blockquote">
+        <p> You are on landing page, <b><%= userName %> </b>. Please Login or click below to go to MyPage and continue your fitness journey. </p>
+      </blockquote>
 
-  <div class="container-fluid text-center">   
-
-    <div class="jumbotron jumbotron-fluid row">
-
-      <div class="col-sm-5"> 
-        <h2>Mission Statement</h2>
-        <p>What we believe in - Health, Growth, Peace!
-          <b>Checkout our white paper below </b>
-        </p>
-          
-        <a href="https://www.corsphere.com">
-          <img src="/images/sign1.webp" width="100" height="100">
-          </a>
-      </div>
-      
-     
-      <div class="col-sm-2">
-
+      <!-- Register or Go To My Page Button -->
+      <div class="container-fluid d-flex justify-content-center align-items-center fitapp-section">
+        <% if (userName !== 'Guest') { %>
+          <a href="/dashboard" class="btn btn-primary mt-3">Go To My Page</a>
+        <% } else { %>
+          <a href="/register" class="btn btn-primary mt-3">Register to View My Page</a>
+        <% } %>
       </div>
 
-      <div class="col-sm-5"> 
-        <h2>Try us in 5 minutes</h2>
-        <p>Get closer to your health goals in only few minutes of setup. <b>You can check out more below.</b>
-        </p>
-        <a href="/userpage">
-          <img src="/images/sign4.png" width="150" height="100">
-          </a>
+    </div>
+
+    <!-- About FitApp Section -->
+    <div class="container-fluid fitapp-section">
+      <h2>About FitApp</h2>
+      <p>
+        FitApp is a personalized fitness platform designed to help you achieve
+        your health and fitness goals. By offering tailored workout and
+        nutrition programs, FitApp enables users to create a unique experience
+        that suits their individual needs and preferences. With an easy-to-use
+        interface and a supportive community, FitApp empowers you to take
+        control of your fitness journey and make lasting, positive changes.
+      </p>
+    </div>
+
+    <!-- Sample Workouts and Nutrition Plans -->
+    <div class="container-fluid fitapp-section">
+      <h2>Sample Workouts and Nutrition Plans</h2>
+
+      <%
+      let workouts = [
+        {
+          name: "Full Body Workout",
+          description: "A workout that targets all major muscle groups.",
+          image: "/images/workout_5.webp"
+        },
+        {
+          name: "Upper Body Workout",
+          description: "A workout that targets the chest, back, and arms.",
+          image: "/images/workout_6.webp"
+        }
+      ];
+
+      let nutrition = [
+        {
+          name: "High Protein Diet",
+          description: "A diet focused on consuming high amounts of protein.",
+          image: "/images/nutrition_2.jpeg"
+        },
+        {
+          name: "Low Carb Diet",
+          description: "A diet focused on consuming low amounts of carbohydrates.",
+          image: "/images/nutrition_1.jpeg"
+        }
+      ];
+      %>
+
+      <div class="row card-container">
+        <% workouts.forEach((workout, index) => { %>
+          <div class="col-md-6 col-lg-4">
+            <div class="card">
+              <img src="<%= workout.image %>" class="card-img-top card-img"  alt="<%= workout.name %>">
+              <div class="card-body">
+                <h5 class="card-title"><%= workout.name %></h5>
+                <p class="card-text"><%= workout.description %></p>
+                <a href="/explore_program/workout/<%= index %>" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      <div class="row card-container">
+        <% nutrition.forEach((nutri, index) => { %>
+          <div class="col-md-6 col-lg-4">
+            <div class="card">
+              <img src="<%= nutri.image %>" class="card-img-top card-img" alt="<%= nutri.name %>">
+              <div class="card-body">
+                <h5 class="card-title"><%= nutri.name %></h5>
+                <p class="card-text"><%= nutri.description %></p>
+                <a href="/explore_program/nutrition/<%= index %>" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
       </div>
     </div>
-  </div>
+
+
+
   </body>
   <% include partials/script %>
 </html>
