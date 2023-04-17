@@ -30,6 +30,8 @@ var userpageRouter = require('./routes/userpage')
 
 const measurementsRouter = require('./routes/measurements');
 
+const suggestionsRouter = require('./routes/suggestions');
+
 
 
 const mongoose = require('mongoose');
@@ -113,6 +115,8 @@ app.use('/logout', logoutRouter);
 app.use('/userpage', userpageRouter);
 
 app.use('/measurements', measurementsRouter);
+
+app.use('/suggestions', suggestionsRouter);
 
 
 

@@ -6,6 +6,11 @@ const MeasurementSchema = new mongoose.Schema({
   date: Date,
 });
 
+const SuggestionSchema = new mongoose.Schema({
+  suggestion: String,
+  date: Date,
+});
+
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -26,6 +31,7 @@ const UserSchema = new mongoose.Schema({
   height: Number,
   age: Number,
   measurements: [MeasurementSchema],
+  suggestions: [SuggestionSchema],
 });
 
 const User = mongoose.model('User', UserSchema);
