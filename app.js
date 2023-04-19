@@ -28,7 +28,6 @@ var registerRouter = require('./routes/register');
 
 var userpageRouter = require('./routes/userpage')
 
-const measurementsRouter = require('./routes/measurements');
 
 const suggestionsRouter = require('./routes/suggestions');
 
@@ -114,7 +113,6 @@ app.use('/register', registerRouter);
 app.use('/logout', logoutRouter);
 app.use('/userpage', userpageRouter);
 
-app.use('/measurements', measurementsRouter);
 
 app.use('/suggestions', suggestionsRouter);
 

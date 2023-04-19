@@ -29,10 +29,10 @@
   <body>
     <% include partials/menu %>
     <div class="container-fluid">
-      <h1>Welcome to FitApp</h1>
+      <h1>Welcome to Fit Chat App</h1>
       <br />
       <blockquote class="blockquote">
-        <p> You are on landing page, <b><%= userName %> </b>. Please Login or click below to go to MyPage and continue your fitness journey. </p>
+        <p> You are on landing page, <b><%= userName %> </b>. Please Login or click below to go to Fitbot Chat Page. </p>
       </blockquote>
 
       <!-- Register or Go To My Page Button -->
@@ -48,80 +48,16 @@
 
     <!-- About FitApp Section -->
     <div class="container-fluid fitapp-section">
-      <h2>About FitApp</h2>
+      <h2>About Fit Chat App</h2>
       <p>
-        FitApp is a personalized fitness platform designed to help you achieve
-        your health and fitness goals. By offering tailored workout and
-        nutrition programs, FitApp enables users to create a unique experience
-        that suits their individual needs and preferences. With an easy-to-use
-        interface and a supportive community, FitApp empowers you to take
-        control of your fitness journey and make lasting, positive changes.
+        Fit Chat App has been finetuned on 8000 unique food nutrition data such as 
+        calories, protein, cholestrol etc so it can help users answer nutrition related
+        queries in seconds. The app uses a finetuned Alpaca 7b model hosted locally
+        and trained on USDA food data.
       </p>
     </div>
 
-    <!-- Sample Workouts and Nutrition Plans -->
-    <div class="container-fluid fitapp-section">
-      <h2>Sample Workouts and Nutrition Plans</h2>
-
-      <%
-      let workouts = [
-        {
-          name: "Full Body Workout",
-          description: "A workout that targets all major muscle groups.",
-          image: "/images/workout_5.webp"
-        },
-        {
-          name: "Upper Body Workout",
-          description: "A workout that targets the chest, back, and arms.",
-          image: "/images/workout_6.webp"
-        }
-      ];
-
-      let nutrition = [
-        {
-          name: "High Protein Diet",
-          description: "A diet focused on consuming high amounts of protein.",
-          image: "/images/nutrition_2.jpeg"
-        },
-        {
-          name: "Low Carb Diet",
-          description: "A diet focused on consuming low amounts of carbohydrates.",
-          image: "/images/nutrition_1.jpeg"
-        }
-      ];
-      %>
-
-      <div class="row card-container">
-        <% workouts.forEach((workout, index) => { %>
-          <div class="col-md-6 col-lg-4">
-            <div class="card">
-              <img src="<%= workout.image %>" class="card-img-top card-img"  alt="<%= workout.name %>">
-              <div class="card-body">
-                <h5 class="card-title"><%= workout.name %></h5>
-                <p class="card-text"><%= workout.description %></p>
-                <a href="/userpage/explore_program/workout/<%= index %>" class="btn btn-primary">View Details</a>
-              </div>
-            </div>
-          </div>
-        <% }) %>
-      </div>
-
-      <div class="row card-container">
-        <% nutrition.forEach((nutri, index) => { %>
-          <div class="col-md-6 col-lg-4">
-            <div class="card">
-              <img src="<%= nutri.image %>" class="card-img-top card-img" alt="<%= nutri.name %>">
-              <div class="card-body">
-                <h5 class="card-title"><%= nutri.name %></h5>
-                <p class="card-text"><%= nutri.description %></p>
-                <a href="/userpage/explore_program/nutrition/<%= index %>" class="btn btn-primary">View Details</a>
-              </div>
-            </div>
-          </div>
-        <% }) %>
-      </div>
-    </div>
-
+   
 
 
   </body>
